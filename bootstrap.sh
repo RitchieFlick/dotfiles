@@ -2,3 +2,4 @@
 
 stow nvim
 stow nix
+stow zsh
