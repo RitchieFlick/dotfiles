@@ -1,0 +1,27 @@
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.16.1
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/semgrep/semgrep
+    rev: 'v1.79.0'
+    hooks:
+      - id: semgrep
+        # See https://semgrep.dev/explore to select a ruleset and copy its URL
+        args: [
+          '--config', 'p/cwe-top-25',
+          '--config', 'p/default',
+          '--config', 'p/owasp-top-ten',
+          '--config', 'p/r2c-security-audit',
+          '--config', 'p/command-injection',
+          '--config', 'p/jwt',
+          '--config', 'p/secrets',
+          '--config', 'p/sql-injection',
+          '--config', 'p/xss',
+          '--config', 'p/docker-compose',
+          '--config', 'p/docker',
+          '--config', 'p/kubernetes',
+          '--config', 'p/supply-chain',
+          '--config', 'p/github-actions',
+        '--error', '--skip-unknown-extensions']
