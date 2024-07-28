@@ -11,7 +11,7 @@
       let pkgs = import nixpkgs { inherit system; };
       in {
         devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [ neovim lazygit nixfmt starship pre-commit semgrep semgrep-core ];
+          buildInputs = with pkgs; [ neovim lazygit nixfmt starship pre-commit semgrep semgrep-core lua lua54Packages.luarocks ];
           shellHook = ''
 	  # Install pre-commit hooks found in .pre-commit-config.yaml, which includes gitleaks
 	  pre-commit install
